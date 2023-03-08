@@ -293,4 +293,7 @@ Package operations: 2 installs, 0 updates, 0 removals
   • Installing psutil (5.9.4)
   • Installing taskipy (1.10.3)
 
-  
+# commitar o poetry.lock
+Commitamos para ter um ambiente deterministico.
+Se precisarmos instalar a mesma versão (nesta mesma branch)
+o poetry.lock garante que podemos voltar
