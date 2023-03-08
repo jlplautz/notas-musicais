@@ -32,32 +32,38 @@ Outros vídeos do canal que se relacionam com esse conteúdo:
   • Como organizar um...  https://www.youtube.com/watch?v=O3bs4JtHrow&t=0s
 
 
-
-pipx install poetry  # para install de forma global na ma1uina
-
 para instalar o pipx
 pip install pipx
 
+
+# para install de forma global na maquina
+
+    pip install pipx
+    pipx install poetry  
+
+
 # criar o diretorio do projeto
-poetry new notas-musicais
 
-╭─plautz@ProBook-6470b ~/VSCProjects 
-╰─$ poetry new notas-musicais                                             130 ↵
-Created package notas_musicais in notas-musicais
-╭─plautz@ProBook-6470b ~/VSCProjects 
-╰─$ cd notas-musicais 
-╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais 
-╰─$ tree     
-.
-├── notas_musicais
-│   └── __init__.py
-├── pyproject.toml
-├── README.rst
-└── tests
-    ├── __init__.py
-    └── test_notas_musicais.py
+    poetry new notas-musicais
 
-OBS: Nome do pacote esta com underline notas_musicais
+    ╭─plautz@ProBook-6470b ~/VSCProjects 
+    ╰─$ poetry new notas-musicais                                             
+    Created package notas_musicais in notas-musicais
+    ╭─plautz@ProBook-6470b ~/VSCProjects 
+    ╰─$ cd notas-musicais 
+
+    ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais 
+    ╰─$ tree     
+      .
+      ├── notas_musicais
+      │   └── __init__.py
+      ├── pyproject.toml
+      ├── README.rst
+      └── tests
+          ├── __init__.py
+          └── test_notas_musicais.py
+
+    OBS: Nome do pacote esta com underline notas_musicais
 
 
 # iniciar o git
@@ -297,3 +303,72 @@ Package operations: 2 installs, 0 updates, 0 removals
 Commitamos para ter um ambiente deterministico.
 Se precisarmos instalar a mesma versão (nesta mesma branch)
 o poetry.lock garante que podemos voltar
+
+
+# comandos git não foi commitado
+git init
+git status
+git add .
+git commit -m "<numero>_descriçao
+git push --set-upstream origin main
+git checkout -b 1-create_project_environment
+git checkout main
+git diff
+
+# Configuração do MKDOCs
+╰─$ mkdocs new .          
+INFO     -  Writing config file: ./mkdocs.yml
+INFO     -  Writing initial docs: ./docs/index.md
+
+╰─$ tree
+.
+├── docs
+│   ├── docs.md
+│   └── index.md
+├── mkdocs.yml
+├── notas_musicais
+│   ├── __init__.py
+│   └── __pycache__
+│       └── __init__.cpython-39.pyc
+├── poetry.lock
+├── pyproject.toml
+├── README.rst
+└── tests
+    ├── __init__.py
+    └── test_notas_musicais.py
+
+O arquivo mkdocs.yml foi criado na raiz do projeto
+
+** para executar o MKDOCs
+  - mkdocs serve
+
+### Para alterar o theme e lingua (English / Portugues)
+  - basta inserir no mkdocs.yml 
+    theme
+      name: material
+      linguage: pt-BR
+
+### Para alterar o nme do site e o diretorio
+  - site_name: Notas Musicais
+  - repo_url: https://github.com/jlplautz/notas-musicais
+  - repo_name: jlplautz/notas-musicais
+  - edit_uri: tree/main/docs  # para editar o diretorio da documentação
+
+### Criar um diretorio dentro do Docs para imagens
+  - assets/
+  - assets/logo.png
+  - theme: 
+       logo: assets/logo.png
+       favicon: assets/logo.png
+
+### Inserir imagem no index do MKDOCs
+  - inserir no index
+    - ![Logo do projeto](assets/logo.png)[ width="300" ]
+  - inserir no mkdocs.yml
+    - markdown_extensions:
+        attr_list
+
+### Para inserir estilo no mkdocs
+  - inserir no mkdocs.yml
+    extra_css:
+      - stylesheets/extra.css
