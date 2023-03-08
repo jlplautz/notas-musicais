@@ -118,3 +118,179 @@ ignr -p python .gitignore
 
 # criar o commit para fazer upload para github
 git add .
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹master●› 
+╰─$ git commit -m "1-commit-inicial-estrutura-do-projeto"           
+[master (root-commit) 87f6460] 1-commit-inicial-estrutura-do-projeto
+ 7 files changed, 319 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.rst
+ create mode 100644 docs/docs.md
+ create mode 100644 notas_musicais/__init__.py
+ create mode 100644 pyproject.toml
+ create mode 100644 tests/__init__.py
+ create mode 100644 tests/test_notas_musicais.py
+
+
+# instalar pytest e pytest-cov
+
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry update package@latest                                                                        
+Updating dependencies
+Resolving dependencies... (2.8s)
+Writing lock file
+Package operations: 7 installs, 0 updates, 0 removals
+
+  • Installing attrs (22.2.0)
+  • Installing more-itertools (9.1.0)
+  • Installing packaging (23.0)
+  • Installing pluggy (0.13.1)
+  • Installing py (1.11.0)
+  • Installing wcwidth (0.2.6)
+  • Installing pytest (5.4.3)
+
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev test 
+The following packages are already present in the pyproject.toml and will be skipped:
+  • pytest
+If you want to update it to the latest compatible version, 
+you can use `poetry update package`.
+If you prefer to upgrade it to the latest available version,
+you can use `poetry add package@latest`.
+
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev pytest-cov         
+Using version ^4.0.0 for pytest-cov
+Updating dependencies
+Resolving dependencies... (0.7s)
+Writing lock file
+Package operations: 2 installs, 0 updates, 0 removals
+  • Installing coverage (7.2.1)
+  • Installing pytest-cov (4.0.0)
+
+
+## a instalação com --group dev não funcionou
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry remove --group dev pytest
+
+  NoSuchOptionException
+  The "--group" option does not exist.
+
+# Lib para padronizar o codigo PEP8 (formatadoe de codigo - Blue)
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev blue      
+Using version ^0.9.1 for blue
+
+Updating dependencies
+Resolving dependencies... (3.8s)
+
+Writing lock file
+
+Package operations: 11 installs, 0 updates, 0 removals
+
+  • Installing click (8.1.3)
+  • Installing mccabe (0.6.1)
+  • Installing mypy-extensions (1.0.0)
+  • Installing pathspec (0.11.0)
+  • Installing platformdirs (3.1.0)
+  • Installing pycodestyle (2.8.0)
+  • Installing pyflakes (2.4.0)
+  • Installing typing-extensions (4.5.0)
+  • Installing black (22.1.0)
+  • Installing flake8 (4.0.1)
+  • Installing blue (0.9.1)
+
+# lib para ordenar os imports (format vertical hanging indent )
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev isort
+Using version ^5.12.0 for isort
+Updating dependencies
+Resolving dependencies... (1.0s)
+Writing lock file
+Package operations: 1 install, 0 updates, 0 removals
+
+  • Installing isort (5.12.0)
+
+# lib para documentação -> mkdocs-material
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev isort
+Using version ^5.12.0 for isort
+
+Updating dependencies
+Resolving dependencies... (1.0s)
+
+Writing lock file
+
+Package operations: 1 install, 0 updates, 0 removals
+
+  • Installing isort (5.12.0)
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev mkdocs-material
+Using version ^9.1.1 for mkdocs-material
+
+Updating dependencies
+Resolving dependencies... (32.4s)
+
+Writing lock file
+
+Package operations: 24 installs, 0 updates, 0 removals
+
+  • Installing six (1.16.0)
+  • Installing zipp (3.15.0)
+  • Installing importlib-metadata (6.0.0)
+  • Installing markupsafe (2.1.2)
+  • Installing python-dateutil (2.8.2)
+  • Installing pyyaml (6.0)
+  • Installing certifi (2022.12.7)
+  • Installing charset-normalizer (3.1.0)
+  • Installing ghp-import (2.1.0)
+  • Installing idna (3.4)
+  • Installing jinja2 (3.1.2)
+  • Installing markdown (3.3.7)
+  • Installing mergedeep (1.3.4)
+  • Installing pyyaml-env-tag (0.1)
+  • Installing urllib3 (1.26.14)
+  • Installing watchdog (2.3.1)
+  • Installing colorama (0.4.6)
+  • Installing mkdocs (1.4.2)
+  • Installing mkdocs-material-extensions (1.1.1)
+  • Installing pygments (2.14.0)
+  • Installing pymdown-extensions (9.10)
+  • Installing regex (2022.10.31)
+  • Installing requests (2.28.2)
+  • Installing mkdocs-material (9.1.1)
+
+# para reaproveitar as doc-string que escrevemos nas funçoes
+poetry add --dev mkdocstrings
+
+╰─$ poetry add --dev mkdocstrings
+Using version ^0.20.0 for mkdocstrings
+Updating dependencies
+Resolving dependencies... (1.6s)
+Writing lock file
+Package operations: 2 installs, 0 updates, 0 removals
+  • Installing mkdocs-autorefs (0.4.1)
+  • Installing mkdocstrings (0.20.0)
+
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev mkdocstrings-python
+Using version ^0.8.3 for mkdocstrings-python
+Updating dependencies
+Resolving dependencies... (2.1s)
+Writing lock file
+Package operations: 2 installs, 0 updates, 0 removals
+  • Installing griffe (0.25.5)
+  • Installing mkdocstrings-python (0.8.3)
+
+
+# automação de tarefas task
+(.venv) ╭─plautz@ProBook-6470b ~/VSCProjects/notas-musicais ‹2_inserir_libs_test●› 
+╰─$ poetry add --dev taskipy            
+Using version ^1.10.3 for taskipy
+Updating dependencies
+Resolving dependencies... (2.0s)
+Writing lock file
+Package operations: 2 installs, 0 updates, 0 removals
+  • Installing psutil (5.9.4)
+  • Installing taskipy (1.10.3)
+
+  
