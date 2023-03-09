@@ -45,7 +45,6 @@ pip install pipx
 # criar o diretorio do projeto
 
     poetry new notas-musicais
-
     ╭─plautz@ProBook-6470b ~/VSCProjects 
     ╰─$ poetry new notas-musicais                                             
     Created package notas_musicais in notas-musicais
@@ -304,7 +303,6 @@ Commitamos para ter um ambiente deterministico.
 Se precisarmos instalar a mesma versão (nesta mesma branch)
 o poetry.lock garante que podemos voltar
 
-
 # comandos git 
     git init
     git status
@@ -362,6 +360,7 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
        favicon: assets/logo.png
 
 ### Inserir imagem no index do MKDOCs
+
 ### inserir no index
    ![Logo do projeto](assets/logo.png)[ width="300" ]
 ### inserir no mkdocs.yml
