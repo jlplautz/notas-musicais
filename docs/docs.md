@@ -305,37 +305,37 @@ Se precisarmos instalar a mesma versão (nesta mesma branch)
 o poetry.lock garante que podemos voltar
 
 
-# comandos git não foi commitado
-git init
-git status
-git add .
-git commit -m "<numero>_descriçao
-git push --set-upstream origin main
-git checkout -b 1-create_project_environment
-git checkout main
-git diff
+# comandos git 
+    git init
+    git status
+    git add .
+    git commit -m "<numero>_descriçao
+    git push --set-upstream origin main
+    git checkout -b 1-create_project_environment
+    git checkout main
+    git diff
 
 # Configuração do MKDOCs
-╰─$ mkdocs new .          
-INFO     -  Writing config file: ./mkdocs.yml
-INFO     -  Writing initial docs: ./docs/index.md
+    ╰─$ mkdocs new .          
+    INFO     -  Writing config file: ./mkdocs.yml
+    INFO     -  Writing initial docs: ./docs/index.md
 
-╰─$ tree
-.
-├── docs
-│   ├── docs.md
-│   └── index.md
-├── mkdocs.yml
-├── notas_musicais
-│   ├── __init__.py
-│   └── __pycache__
-│       └── __init__.cpython-39.pyc
-├── poetry.lock
-├── pyproject.toml
-├── README.rst
-└── tests
-    ├── __init__.py
-    └── test_notas_musicais.py
+    ╰─$ tree
+    .
+    ├── docs
+    │   ├── docs.md
+    │   └── index.md
+    ├── mkdocs.yml
+    ├── notas_musicais
+    │   ├── __init__.py
+    │   └── __pycache__
+    │       └── __init__.cpython-39.pyc
+    ├── poetry.lock
+    ├── pyproject.toml
+    ├── README.rst
+    └── tests
+        ├── __init__.py
+        └── test_notas_musicais.py
 
 O arquivo mkdocs.yml foi criado na raiz do projeto
 
@@ -362,27 +362,46 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
        favicon: assets/logo.png
 
 ### Inserir imagem no index do MKDOCs
-  - inserir no index
-    - ![Logo do projeto](assets/logo.png)[ width="300" ]
-  - inserir no mkdocs.yml
-    - markdown_extensions:
-        attr_list
+### inserir no index
+   ![Logo do projeto](assets/logo.png)[ width="300" ]
+### inserir no mkdocs.yml
+    markdown_extensions:
+      attr_list
 
 ### Para inserir estilo no mkdocs
-  - inserir no mkdocs.yml
+### inserir no project.toml
+
     extra_css:
       - stylesheets/extra.css
 
 # Configuração do pytest
-  - inserir no project.toml
-
+### inserir no project.toml
     [tool.pytest.ini_options]
-    pythonpath = "."              # o path para buscar o teste
-    addopts = "--doctest-modules" # para copiar os docs dos testes
+    pythonpath = "."              <-- para o path para buscar o teste
+    addopts = "--doctest-modules" <-- para copiar os docs dos testes
 
 # Configuração blue e isort
-  - inserir no project.toml
+### inserir no project.toml
     
     [tool.isort]
-    profile = "black"   # para alinhar os parametros do import 
+    profile = "black"   <-- para alinhar os parametros do import 
     line_length = 79
+
+# Configuração taskipy
+### inserir no project.toml 
+    [tool.taskipy.tasks]
+    lint = "blue --check --diff . && isort --check --diff ."
+    docs = "mkdocs serve"
+    pre_test = "lint"
+    test = "pytest -s -x --cov=notas_musicais -vv"
+    post_test = "coverage html"
+    -s    <-- para mostrar a saida no terminal
+    -x    <-- para o teste para qdo falhar
+    --cov <-- para verificar a cobertura
+    -vv   <-- para mostrar o nome dos testes
+    post_test  <-- para transformar em html o resultado da cobertura
+    pre_test   <-- para rodar antes dos testes
+### Quais as tasks criadas
+    task -l
+### Para verificar o coverage html
+    firefox htmlcov/index.html
