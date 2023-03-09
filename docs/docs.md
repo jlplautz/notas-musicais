@@ -304,7 +304,6 @@ Commitamos para ter um ambiente deterministico.
 Se precisarmos instalar a mesma versão (nesta mesma branch)
 o poetry.lock garante que podemos voltar
 
-
 # comandos git 
     git init
     git status
@@ -336,6 +335,7 @@ o poetry.lock garante que podemos voltar
     └── tests
         ├── __init__.py
         └── test_notas_musicais.py
+
 
 O arquivo mkdocs.yml foi criado na raiz do projeto
 
@@ -405,3 +405,15 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
     task -l
 ### Para verificar o coverage html
     firefox htmlcov/index.html
+=======
+  - inserir no index
+    - ![Logo do projeto](assets/logo.png)[ width="300" ]
+  - inserir no mkdocs.yml
+    - markdown_extensions:
+        attr_list
+
+### Para inserir estilo no mkdocs
+  - inserir no mkdocs.yml
+    extra_css:
+      - stylesheets/extra.css
+
