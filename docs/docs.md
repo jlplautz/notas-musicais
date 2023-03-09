@@ -372,3 +372,17 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
   - inserir no mkdocs.yml
     extra_css:
       - stylesheets/extra.css
+
+# Configuração do pytest
+  - inserir no project.toml
+
+    [tool.pytest.ini_options]
+    pythonpath = "."              # o path para buscar o teste
+    addopts = "--doctest-modules" # para copiar os docs dos testes
+
+# Configuração blue e isort
+  - inserir no project.toml
+    
+    [tool.isort]
+    profile = "black"   # para alinhar os parametros do import 
+    line_length = 79
