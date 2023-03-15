@@ -401,19 +401,49 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
     -vv   <-- para mostrar o nome dos testes
     post_test  <-- para transformar em html o resultado da cobertura
     pre_test   <-- para rodar antes dos testes
-### Quais as tasks criadas
-    task -l
-### Para verificar o coverage html
-    firefox htmlcov/index.html
-=======
+
   - inserir no index
     - ![Logo do projeto](assets/logo.png)[ width="300" ]
   - inserir no mkdocs.yml
     - markdown_extensions:
         attr_list
 
+### Quais as tasks criadas
+    task -l
+
+### Para verificar o coverage html
+    firefox htmlcov/index.html
+
+
+    Coverage report: 100%
+    Show/hide keyboard shortcuts
+
+    coverage.py v7.2.1, created at 2023-03-14 19:41 -0300
+    Module 	statements 	missing 	excluded 	coverage
+    notas_musicais/__init__.py 	1 	0 	0 	100%
+    notas_musicais/escalas.py 	10 	0 	0 	100%   <-- link para o teste
+    Total 	11 	0 	0 	100%
+
+
 ### Para inserir estilo no mkdocs
   - inserir no mkdocs.yml
     extra_css:
       - stylesheets/extra.css
 
+
+# Dicas para fazer documentação
+   - Criar uma nova pasta dentro do diretorio Docs
+     - api -> dentro criar um o arquivo escalas.md
+        - :::escalas
+   - no file mkdocs.yml inserir
+     plugins:
+      - mkdocstrings:
+          handlers:
+            python:
+              paths: [notas_musicais]
+  
+  - Na função devemos fazer os comentario com a parametrização correta
+    - Args:
+    - Returns:
+    - Examples:
+    - inserir o tipo dos argumentos e o returno
