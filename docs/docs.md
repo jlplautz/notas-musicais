@@ -447,3 +447,25 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
     - Returns:
     - Examples:
     - inserir o tipo dos argumentos e o returno
+
+
+# Dicas para rodar o pdb
+
+   - task test --pdb
+   - inserir um ponto de parada no teste fora do raise
+     - assert False
+
+   - depois de chamar o test -> task test --pdb
+   - executar pytest --pdb
+     - (pdb) error
+         -> assert False
+            (Pdb) error
+            <ExceptionInfo ValueError("'X' is not in list") tblen=2>
+            (Pdb) value
+            *** NameError: name 'value' is not defined
+            (Pdb) str(error.value)
+            "'X' is not in list"
+            (Pdb) error.value.args
+            ("'X' is not in list",) 
+            (Pdb) error.value.args[0]
+            "'X' is not in list"
