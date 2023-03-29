@@ -468,4 +468,4 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
             (Pdb) error.value.args
             ("'X' is not in list",) 
             (Pdb) error.value.args[0]
-            "'X' is not in list"
+            "'X' is not in list"b 
