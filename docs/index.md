@@ -2,12 +2,18 @@
 
 # NOTAS MUSICAIS
 
+Notas musicais é um CLI para ajudar na formação de escalas e acordes
+
+Temos dois comandos disponiveis: `escala` e `acorde`
+
 ## como usar?
+
+### Escalas
 
 Você pode chamar as escalas via linha de comando. Por exemplo:
 
 ```bash
-poetry run escalas
+poetry run notas-musicais escala
 ```
 Retornando os graus e as notas correspondentes a essa escala:
 
@@ -19,13 +25,13 @@ Retornando os graus e as notas correspondentes a essa escala:
 └───┴────┴─────┴────┴───┴────┴─────┘
 ```
 
-## Alteração do tônica da escala
+#### Alteração do tônica da escala
 
 O primeiro parâmetro da CLI a tônica da escala que deseja exibir. Desta forma,
 você pode alterar a escala retornando: Por exemplo, a escala de 'F#' (la sustenido)
 
 ```bash
-poetry run escalas F#
+poetry run notas-musicais escala F#
 ```
 
 Resultando em:
@@ -37,22 +43,22 @@ Resultando em:
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-## Alteração na tonalidade da escala
+#### Alteração na tonalidade da escala
 
 Você pode alterar a tonalidade da escala também! Esse é o segundo parâmetro da 
 linha de comando. Por exemplo , a escala de 'D#' maior:
 
 ```bash
-poetry run escalas D# maior
+poetry run notas-musicais escala D# menor
 
 ```
 Resultando em:
 ```
-┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━┓
-┃ I ┃ II ┃ III ┃ IV ┃ V ┃ VI ┃ VII ┃
-┡━━━╇━━━━╇━━━━━╇━━━━╇━━━╇━━━━╇━━━━━┩
-│ C │ D  │ E   │ F  │ G │ A  │ B   │
-└───┴────┴─────┴────┴───┴────┴─────┘
+┏━━━━┳━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
+┃ I  ┃ II ┃ III ┃ IV ┃ V  ┃ VI ┃ VII ┃
+┡━━━━╇━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
+│ D# │ F  │ F#  │ G# │ A# │ B  │ C#  │
+└────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
 ## Mais informações sobre o CLI 
@@ -60,14 +66,48 @@ Resultando em:
 Para descobrir outras opções, você pode usar a flag `--help`
 
 ```
-Usage: escalas [OPTIONS] [TONICA] [TONALIDADE]                                                                  
+Usage: notas-musicais [OPTIONS] COMMAND [ARGS]...                                                               
                                                                                                                  
-╭─ Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────╮
-│   tonica          [TONICA]      Tônica da escala [default: c]                                                 │
-│   tonalidade      [TONALIDADE]  Tonalidade da escala [default: maior]                                         │
+╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --install-completion        [bash|zsh|fish|powershell|pwsh]  Install completion for the specified shell.      │
+│                                                              [default: None]                                  │
+│ --show-completion           [bash|zsh|fish|powershell|pwsh]  Show completion for the specified shell, to copy │
+│                                                              it or customize the installation.                │
+│                                                              [default: None]                                  │
+│ --help                                                       Show this message and exit.                      │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ acorde                                                                                                        │
+│ escala                                                                                                        │
 ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
+## Acordes
+
+Uso básico
+
+poetry run notas-musicais acorde
+
+```bash
+┏━━━┳━━━━━┳━━━┓
+┃ I ┃ III ┃ V ┃
+┡━━━╇━━━━━╇━━━┩
+│ C │ E   │ G │
+└───┴─────┴───┘
+```
+
+### Variações na cifra
+
+poetry run notas-musicais acorde C+
+
+```
+┏━━━┳━━━━━┳━━━━┓
+┃ I ┃ III ┃ V+ ┃
+┡━━━╇━━━━━╇━━━━┩
+│ C │ E   │ G# │
+└───┴─────┴────┘
+```
+Até o momento voce pode usar acordes maiores, menores, dimunito e aumentados
 
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).

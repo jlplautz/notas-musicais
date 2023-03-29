@@ -1,1 +1,1 @@
-:::escalas
+::: escalas
