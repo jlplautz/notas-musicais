@@ -29,11 +29,31 @@ def triade(nota, tonalidade):
     return [notas_da_escala[grau] for grau in graus]
 
 
-def acorde(cifra):
+def acorde(cifra: str) -> dict[str, list[str]]:
     """
+    Gera as notas de um acorde partindo de uma cifra.
+
+    Parameters:
+        cifra: Um acorde em forma de cifra
+
     Examples:
         >>> acorde('C')
         {'notas': ['C', 'E', 'G'], 'graus': ['I', 'III', 'V']}
+
+        >>> acorde('Cm')
+        {'notas': ['C', 'D#', 'G'], 'graus': ['I', 'III-', 'V']}
+
+        >>> acorde('C°')
+        {'notas': ['C', 'D#', 'F#'], 'graus': ['I', 'III-', 'V-']}
+
+        >>> acorde('C+')
+        {'notas': ['C', 'E', 'G#'], 'graus': ['I', 'III', 'V+']}
+
+        >>> acorde('Cm+')
+        {'notas': ['C', 'D#', 'G#'], 'graus': ['I', 'III-', 'V+']}
+
+    returns:
+        Um dicionário com as notas e os graus correspondesntes a escala maior.        
     """
     if 'm' in cifra:
         notas, graus = _menor(cifra)
@@ -48,7 +68,7 @@ def acorde(cifra):
         nota, _ = cifra.split('+')
         tonica, terca, quinta = triade(nota, 'maior')
         notas = [tonica, terca, semitom(quinta, intervalo=+1)]
-        graus = ['I', 'III-', 'V+']
+        graus = ['I', 'III', 'V+']
     else:
         notas = triade(cifra, 'maior')
         graus = ['I', 'III', 'V']

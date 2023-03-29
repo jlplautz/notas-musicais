@@ -5,8 +5,7 @@ description = ""
 authors = ["Jorge Luiz Plautz <jorge.plautz@gmail.com>"]
 
 [tool.poetry.scripts]
-escalas = "notas_musicais.cli:app"
-
+notas-musicais = "notas_musicais.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.9"
