@@ -53,7 +53,7 @@ def acorde(cifra: str) -> dict[str, list[str]]:
         {'notas': ['C', 'D#', 'G#'], 'graus': ['I', 'III-', 'V+']}
 
     returns:
-        Um dicionário com as notas e os graus correspondesntes a escala maior.        
+        Um dicionário com as notas e os graus correspondentes a escala maior.
     """
     if 'm' in cifra:
         notas, graus = _menor(cifra)
