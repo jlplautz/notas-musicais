@@ -498,3 +498,8 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
   # fazer o add + commit do docs/api/campo_harmonico
     git add docs/api/campo_harmonico.md notas_musicais/campo_harmonico.py notas_musicais/cli.py
     git commit -m "11-implementação do modulo da biblioteca referente aos campos harmonicos"
+
+    git add notas_musicais/acordes.py tests/test_cli.py
+    git commit -m "12-implentação dos test_cli e correção acordes"
+
+    git add docs/docs.md docs/index.md
