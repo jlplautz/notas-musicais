@@ -469,3 +469,32 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
             ("'X' is not in list",) 
             (Pdb) error.value.args[0]
             "'X' is not in list"b 
+
+
+# Dica para o commit
+  # observe os arquivos que foram alterados
+    git status  
+    On branch main
+    Your branch is up to date with 'origin/main'.
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   docs/docs.md
+            modified:   docs/index.md
+            modified:   mkdocs.yml
+            modified:   notas_musicais/acordes.py
+            modified:   notas_musicais/cli.py
+            modified:   tests/test_cli.py
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            docs/api/campo_harmonico.md
+            notas_musicais/campo_harmonico.py
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+  # fazer o add + commit do mkdocs.yml  
+    git add mkdocs.yml
+    git commit -m "10-Adicionando watch no mkdocs para o reload do docs"
+
+  # fazer o add + commit do docs/api/campo_harmonico
+    git add docs/api/campo_harmonico.md notas_musicais/campo_harmonico.py notas_musicais/cli.py
+    git commit -m "11-implementação do modulo da biblioteca referente aos campos harmonicos"
