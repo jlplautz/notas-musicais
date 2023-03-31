@@ -503,3 +503,41 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
     git commit -m "12-implentação dos test_cli e correção acordes"
 
     git add docs/docs.md docs/index.md
+  
+
+# Com gerar a documentação
+
+  - Inicio Rapido
+    - Contextp sobre a aplicaçã
+      - subcomndos do CLI
+    - Como instalat
+      - pip install ...
+    - Como executar
+      - Gancho com o contexto e uma explicação basica de cada comando
+      - Help
+
+  - Tutorial
+  
+
+# Comfigurando github actions
+  - mkdir .github
+  - mkdir .github/workflows
+  - name: pipeline
+    on: push, pull_request
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Roda um Comando!
+            run: echo S(pwd)
+          
+          - name: Roda outro Comando!
+            run: echo $(ls)
+
+  - existe a lib ACT para simular o container do github action
+    - instalar o act -> https://github.com/nektos/act
+    - time act
+
+  - git add .github/
+  - git commit -m "Configuração inicial do CI"

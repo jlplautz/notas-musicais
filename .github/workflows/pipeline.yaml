@@ -1,0 +1,28 @@
+name: pipeline
+on: push, pull_request
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copia os arquivos do repo
+        uses: actions/checkout@v3  # actions do proprio github actions
+      
+      - name: Instalar o python
+        uses: actions/setup-python@v4   # actions do proprio github actions
+        with:
+          python-version: '3.11.1'
+      
+      - name: Instalar poetry
+        run: pip install poetry
+      
+      - name: Install dependencias do projeto
+        run: poetry install --without doc  # sem o grupo de dependencia doc
+
+      - name: Executar os testes
+        run: poetry run task test
+
+      - name: Verificar cobertura via codecov
+        run: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
