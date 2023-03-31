@@ -23,6 +23,6 @@ jobs:
         run: poetry run task test
 
       - name: Verificar cobertura via codecov
-        use: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
