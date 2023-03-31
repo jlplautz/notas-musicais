@@ -1,5 +1,5 @@
 name: pipeline
-on: push, pull_request
+on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,9 +20,9 @@ jobs:
         run: poetry install --without doc  # sem o grupo de dependencia doc
 
       - name: Executar os testes
-        run: poetry run task test
+        run: poetry run task test --cov-report=xml
 
       - name: Verificar cobertura via codecov
-        run: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
