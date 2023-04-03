@@ -17,12 +17,46 @@ def _menor(cifra):
 
 
 def semitom(nota, *, intervalo):
+    """
+    Calcula a distância em semitons para uma outra nota usando intervalos.
+
+    Parameters:
+        nota: Uma nota qualquer
+        intervalo: um intervalo em semitons
+
+    Returns:
+        Uma nota correspondente ao intervalo
+
+    Examples:
+        >>> semitom('C', intervalo=+1)
+        'C#'
+
+        >>> semitom('C', intervalo=-1)
+        'B'
+    """
     pos = NOTAS.index(nota) + intervalo
 
     return NOTAS[pos % 12]
 
 
 def triade(nota, tonalidade):
+    """
+    Gera triades a partir de uma tônica e uma tonalidade.
+
+    Parameters:
+        nota: Uma nota da qual se deseja obter um acorde
+        tonalidade: Tonalidade na qual será formado o acorde
+
+    Returns:
+        A tríade do acorde referente a nota e a tonalidade
+
+    Examples:
+        >>> triade('C', 'maior')
+        ['C', 'E', 'G']
+
+        >>> triade('C', 'menor')
+        ['C', 'D#', 'G']
+    """
     graus = (0, 2, 4)
     notas_da_escala, _ = escala(nota, tonalidade).values()
 
