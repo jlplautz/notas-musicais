@@ -507,6 +507,14 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
 
 # Com gerar a documentação
 
+  Resumo / Pagina inicial / Readme(repo)
+
+  Cards
+   Cards para levar para lugares especificos da documentação
+    - inicio rapido
+    - Tutorial
+    - Contribuição
+
   - Inicio Rapido
     - Contextp sobre a aplicaçã
       - subcomndos do CLI
@@ -517,6 +525,57 @@ O arquivo mkdocs.yml foi criado na raiz do projeto
       - Help
 
   - Tutorial
+    - Detalhar os objetivos
+    - Explicar cada suncomando
+      - Variação dos comandos
+      - Aproveitar dos recursos graficos
+        - Images e videos
+  
+  - Quero Contribuir
+    - Como executar o projeto
+      - como fazer o clone
+      - como fazer os testes
+      - como rodar os linters
+      - Descrição dos modulos
+        - aponta para a documentação da Api
+
+    - Dicas de contribuição (com referências)
+      - Implementar escalas
+        - wikipedia das escalas
+      - Classes customizadas de Erros
+        - NotaErro
+      - Progressões harmônicas!
+        - sus4
+        - sus9
+      - Tétrade
+        - Acordes com 7
+        - Acordes com 9
+      - Funçoes harmônicas
+        - Tõnica
+        - dominante
+        - subdominante
+        - relativos
+
+  - API
+    - Explicar os modulos!
+
+  - Parte Tecnica
+    - Macros: Não repita comandos que podem se modificar
+    - Templates: Para que blocos de documentação repetidos não sejam
+      duplicados em varios lugares
+    - Cards: HTML e CSS para os cards
+
+# instalar a lib mkdocs-macros-plugin
+poetry add --group doc mkdocs-macros-plugin
+poetry add --group doc jinja2  # mkdocs esta integrado com o jinja2
+
+# No file mkdocs.yml 
+  - inserir no plugins
+    - macros
+    - extra:
+      commands:
+        run: poetry run notas-musicais 
+  ## desta forma será inserido o comando dentro doc sempre que usar {{ commands.run }}
   
 
 # Comfigurando github actions
